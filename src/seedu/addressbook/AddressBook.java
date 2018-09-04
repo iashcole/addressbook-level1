@@ -1048,7 +1048,8 @@ public class AddressBook {
      * @param name to be validated
      */
     private static boolean isPersonNameValid(String name) {
-        return name.matches("(\\w|\\s)+");  // name is nonempty mixture of alphabets and whitespace
+        return name.matches("(\\w|\\s)+") && name.length() < 50;  // name is nonempty mixture of alphabets and whitespace
+        // length of name to not exceed 50 characters
         //TODO: implement a more permissive validation
     }
 
@@ -1058,7 +1059,8 @@ public class AddressBook {
      * @param phone to be validated
      */
     private static boolean isPersonPhoneValid(String phone) {
-        return phone.matches("\\d+");    // phone nonempty sequence of digits
+        return phone.matches("\\d+") && phone.length() < 20;    // phone nonempty sequence of digits
+        // length of phone number to not exceed 20 digits
         //TODO: implement a more permissive validation
     }
 
@@ -1069,7 +1071,8 @@ public class AddressBook {
      * @return whether arg is a valid person email
      */
     private static boolean isPersonEmailValid(String email) {
-        return email.matches("\\S+@\\S+\\.\\S+"); // email is [non-whitespace]@[non-whitespace].[non-whitespace]
+        return email.matches("\\S+@\\S+\\.\\S+") && email.length() < 30; // email is [non-whitespace]@[non-whitespace].[non-whitespace]
+        //length of email to not exceed 30 characters
         //TODO: implement a more permissive validation
     }
 
